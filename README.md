@@ -1,6 +1,6 @@
 # dnn_gaussian_regularization
 
-contains codes used for Gaussian regularization presented in John, Vettam and Wu (2022): arXiv: 2204.03123
+contains codes (developed by Sujit Vettam) used for Gaussian regularization presented in John, Vettam and Wu (2022): arXiv: 2204.03123
 
 1) codes for DNN architecture applied on MNIST dataset is included (the same DNN architecture was applied on FMNIST and RCV1 datasets)
 
