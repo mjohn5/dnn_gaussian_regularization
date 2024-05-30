@@ -36,8 +36,6 @@ for(ov.iter in 1:1000){ print(ov.iter)
 
   classo.cv.fit <- cv.ncpen(y.vec = y, x.mat = X.mat, family = "gaussian", penalty = "classo", intercept = "FALSE")
 
-  ridge.cv.fit <- cv.ncpen(y.vec = y, x.mat = X.mat, family = "gaussian", penalty = "ridge", intercept = "FALSE")
-
   sridge.cv.fit <- cv.ncpen(y.vec = y, x.mat = X.mat, family = "gaussian", penalty = "sridge", intercept = "FALSE")
 
   mbridge.cv.fit <- cv.ncpen(y.vec = y, x.mat = X.mat, family = "gaussian", penalty = "mbridge", intercept = "FALSE")
@@ -163,7 +161,6 @@ for(ov.iter in 1:1000){ print(ov.iter)
   bias.ratio.lasso  <- sum(abs((coef(lasso.cv.fit)$beta - tb)/tb))
   bias.ratio.tlp    <- sum(abs((coef(tlp.cv.fit)$beta - tb)/tb))
   bias.ratio.classo <- sum(abs((coef(classo.cv.fit)$beta - tb)/tb))
-  #sum(abs((coef(ridge.cv.fit)$beta - tb)/tb))
   bias.ratio.sridge  <- sum(abs((coef(sridge.cv.fit)$beta - tb)/tb))
   bias.ratio.mbridge <- sum(abs((coef(mbridge.cv.fit)$beta - tb)/tb))
   bias.ratio.mlog    <- sum(abs((coef(mlog.cv.fit)$beta - tb)/tb))
@@ -186,7 +183,6 @@ for(ov.iter in 1:1000){ print(ov.iter)
   bias.lasso   <- sum(abs((coef(lasso.cv.fit)$beta - tb)))
   bias.tlp     <- sum(abs((coef(tlp.cv.fit)$beta - tb)))
   bias.classo  <- sum(abs((coef(classo.cv.fit)$beta - tb)))
-  #sum(abs((coef(ridge.cv.fit)$beta - tb)))
   bias.sridge  <- sum(abs((coef(sridge.cv.fit)$beta - tb)))
   bias.mbridge <- sum(abs((coef(mbridge.cv.fit)$beta - tb)))
   bias.mlog    <- sum(abs((coef(mlog.cv.fit)$beta - tb)))
@@ -249,14 +245,6 @@ for(ov.iter in 1:1000){ print(ov.iter)
   bias.mlog.1.25    <- sum(abs((coef(mlog.cv.fit)$beta[1:25] - tb[1:25])))
 
 
-  #coef(tlp.cv.fit)
-  #coef(classo.cv.fit)
-  #coef(ridge.cv.fit)
-  #coef(sridge.cv.fit)
-  #coef(mbridge.cv.fit)
-  #coef(mlog.cv.fit)
-
-
 
 rslts <- c(mse.gauss, mse.ridge, mse.scad,  mse.mcp,   mse.lasso,  mse.tlp,   mse.classo, mse.sridge, mse.mbridge, mse.mlog, bias.ratio.gauss, bias.ratio.ridge, bias.ratio.scad,  bias.ratio.mcp,  bias.ratio.lasso, bias.ratio.tlp,  bias.ratio.classo, bias.ratio.sridge,  bias.ratio.mbridge, bias.ratio.mlog, bias.gauss, bias.ridge, bias.scad,  bias.mcp,   bias.lasso,  bias.tlp,   bias.classo, bias.sridge, bias.mbridge, bias.mlog, bias.gauss.101.109,  bias.ridge.101.109,  bias.scad.101.109,   bias.mcp.101.109,   bias.lasso.101.109,  bias.tlp.101.109,    bias.classo.101.109, bias.sridge.101.109,  bias.mbridge.101.109, bias.mlog.101.109, bias.gauss.75.100, bias.ridge.75.100, bias.scad.75.100,  bias.mcp.75.100,   bias.lasso.75.100,  bias.tlp.75.100,   bias.classo.75.100, bias.sridge.75.100, bias.mbridge.75.100, bias.mlog.75.100, bias.gauss.50.75, bias.ridge.50.75, bias.scad.50.75,  bias.mcp.50.75,   bias.lasso.50.75,  bias.tlp.50.75,   bias.classo.50.75, bias.sridge.50.75, bias.mbridge.50.75, bias.mlog.50.75, bias.gauss.25.50, bias.ridge.25.50, bias.scad.25.50,  bias.mcp.25.50,   bias.lasso.25.50,  bias.tlp.25.50,   bias.classo.25.50, bias.sridge.25.50, bias.mbridge.25.50, bias.mlog.25.50, bias.gauss.1.25, bias.ridge.1.25, bias.scad.1.25,  bias.mcp.1.25,   bias.lasso.1.25,  bias.tlp.1.25,   bias.classo.1.25, bias.sridge.1.25, bias.mbridge.1.25, bias.mlog.1.25)    
 
@@ -272,7 +260,7 @@ c.names <- c("mse.gauss", "mse.ridge", "mse.scad",  "mse.mcp",   "mse.lasso",  "
                       rslts.df <- as.data.frame(rslts.df1)
 
 
-                     #write.table(rslts.df, "...pathname.../sim.109.csv", sep = ",", row.names = FALSE)
+                     write.table(rslts.df, "...pathname.../sim.109.csv", sep = ",", row.names = FALSE)
                    }
 
            }
